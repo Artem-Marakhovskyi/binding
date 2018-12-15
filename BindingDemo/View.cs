@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
+using BindingDemo.BareBinding.Infrastructure;
+
 namespace BindingDemo.BareBinding
 {
     public class View
     {
-        private const string OutputFormat = "{0}, {1}";
+        private const string OutputFormat = "{0}, {1} \n Press ENTER:";
 
         private readonly Model _model;
 
@@ -11,6 +14,8 @@ namespace BindingDemo.BareBinding
         {
             _model = model;
             _model.PropertyChanged += ModelPropertyChanged;
+            _model.Command.Execute(Console.ReadLine());
+            _model.PropertyChanged -= ModelPropertyChanged;
         }
 
         private void ModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -19,13 +24,11 @@ namespace BindingDemo.BareBinding
             {
                 case nameof(_model.Time):
                     {
-                        Console.Clear();
                         Out();
                         break;
                     }
                 case nameof(_model.Percentage):
                     {
-                        Console.Clear();
                         Out();
                         break;
                     }
@@ -34,6 +37,7 @@ namespace BindingDemo.BareBinding
 
         private void Out()
         {
+            Console.Clear();
             Console.WriteLine(
                 string.Format(
                     OutputFormat,

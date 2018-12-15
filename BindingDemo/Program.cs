@@ -7,7 +7,8 @@ namespace BindingDemo
     {
         static void Main(string[] args)
         {
-            new View(new Model());
+            var view = new View(new Model());
+            
             Console.ReadLine();
         }
     }
