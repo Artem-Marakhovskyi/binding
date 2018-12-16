@@ -18,8 +18,22 @@ namespace BindingDemo.BareBinding
         public void Start()
         {
             _viewModel.PropertyChanged += ViewModelPropertyChanged;
-            _viewModel.Command.Execute(Console.ReadLine());
+            ReadInput();
             _viewModel.PropertyChanged -= ViewModelPropertyChanged;
+        }
+
+        private void ReadInput()
+        {
+            var keyInfo = Console.ReadKey();
+
+            if (keyInfo.Key == ConsoleKey.Enter)
+            {
+                _viewModel.EnterCommand.Execute(null);
+            }
+            else
+            {
+                _viewModel.KeyboardInputCommand.Execute(null);
+            }
         }
 
         private void ViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -42,6 +56,7 @@ namespace BindingDemo.BareBinding
         private void Out()
         {
             Console.Clear();
+
             Console.WriteLine(
                 string.Format(
                     OutputFormat,

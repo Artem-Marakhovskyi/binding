@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Windows.Input;
 
-namespace BindingDemo.BareBinding.Infrastructure
+namespace BindingDemo.NaiveBinding.Infrastructure
 {
-    public class Command : ICommand
+    public class EnterCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -10,7 +11,7 @@ namespace BindingDemo.BareBinding.Infrastructure
 
         public void Execute(object parameter)
         {
-            Console.WriteLine("Command executed, enter pressed. Voila!");
+            Console.WriteLine("EnterCommand executed, enter pressed. Voila!");
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using BindingDemo.NaiveBinding.Infrastructure;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows.Input;
-using BindingDemo.BareBinding.Infrastructure;
 
-namespace BindingDemo.BareBinding
+namespace BindingDemo.NaiveBinding
 {
     public class ViewModel : INotifyPropertyChanged
     {
@@ -49,7 +49,7 @@ namespace BindingDemo.BareBinding
         {
             _timer = new Timer(Cycle, null, dueTime: 0, period: 100);
             EnterCommand = new EnterCommand();
-            EnterCommand = new KeyboardInputCommand();
+            KeyboardInputCommand = new KeyboardInputCommand();
         }
 
         protected void OnPropertyChanged([CallerMemberName]string callerName = null)
