@@ -1,16 +1,13 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Widget;
-using GalaSoft.MvvmLight.Views;
-using GalaSoft.MvvmLight.Helpers;
 using System.Collections.Generic;
-using BindingDemo.MvvmLight.Core;
 using Android.Views;
-using System.Linq;
+using BindingDemo.MvvmLight.Core;
 
 namespace BindingDemo.MvvmLight.Droid
 {
-    [Activity(Label = "MVVM Light sample", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "MVVM Cross sample", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : ActivityBase
     {
         private TextView _textView;
@@ -19,8 +16,6 @@ namespace BindingDemo.MvvmLight.Droid
         private Button _clearButton;
         private Button _commandButton;
         private ViewModel _viewModel;
-        private IList<Binding> _bindings = new List<Binding>();
-        private ObservableAdapter<CollectionElement> _adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,9 +34,9 @@ namespace BindingDemo.MvvmLight.Droid
         {
             //Possible cast fault
             //_bindings.Add(
-                //this.SetBinding(
-                    //() => _viewModel.Elements,
-                    //() => _adapter.DataSource));
+            //this.SetBinding(
+            //() => _viewModel.Elements,
+            //() => _adapter.DataSource));
 
             _adapter.DataSource = _viewModel.Elements;
 
