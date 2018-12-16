@@ -5,10 +5,11 @@ namespace BindingDemo
 {
     class Program
     {
+        private static View _view;
         static void Main(string[] args)
         {
-            var view = new View(new Model());
-            
+            _view = new View(new ViewModel());
+            _view.Start();
             Console.ReadLine();
         }
     }

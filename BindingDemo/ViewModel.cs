@@ -6,7 +6,7 @@ using BindingDemo.BareBinding.Infrastructure;
 
 namespace BindingDemo.BareBinding
 {
-    public class Model : INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged
     {
         private readonly Timer _timer;
 
@@ -43,9 +43,9 @@ namespace BindingDemo.BareBinding
             }
         }
 
-        public Model()
+        public ViewModel()
         {
-            _timer = new Timer(Cycle, null, dueTime: 0, period: 10);
+            _timer = new Timer(Cycle, null, dueTime: 0, period: 100);
             Command = new Command();
         }
 

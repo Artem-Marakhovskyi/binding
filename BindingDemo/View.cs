@@ -8,26 +8,30 @@ namespace BindingDemo.BareBinding
     {
         private const string OutputFormat = "{0}, {1} \n Press ENTER:";
 
-        private readonly Model _model;
+        private readonly ViewModel _viewModel;
 
-        public View(Model model)
+        public View(ViewModel viewModel)
         {
-            _model = model;
-            _model.PropertyChanged += ModelPropertyChanged;
-            _model.Command.Execute(Console.ReadLine());
-            _model.PropertyChanged -= ModelPropertyChanged;
+            _viewModel = viewModel;
         }
 
-        private void ModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        public void Start()
+        {
+            _viewModel.PropertyChanged += ViewModelPropertyChanged;
+            _viewModel.Command.Execute(Console.ReadLine());
+            _viewModel.PropertyChanged -= ViewModelPropertyChanged;
+        }
+
+        private void ViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
-                case nameof(_model.Time):
+                case nameof(_viewModel.Time):
                     {
                         Out();
                         break;
                     }
-                case nameof(_model.Percentage):
+                case nameof(_viewModel.Percentage):
                     {
                         Out();
                         break;
@@ -41,8 +45,8 @@ namespace BindingDemo.BareBinding
             Console.WriteLine(
                 string.Format(
                     OutputFormat,
-                    _model.Time.ToString(),
-                    new string('.', _model.Percentage)));
+                    _viewModel.Time.ToString(),
+                    new string('.', _viewModel.Percentage)));
         }
     }
 }
