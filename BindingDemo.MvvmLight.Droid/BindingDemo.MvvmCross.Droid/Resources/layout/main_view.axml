@@ -1,31 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
         <EditText
             android:id="@+id/edit_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            local:MvxBind="Text Text">
         </EditText>
         <Button
             android:id="@+id/clear_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear text"/>
+            android:text="Clear text"
+            local:MvxBind="Click ClearCommand"/>
         <Button
             android:id="@+id/command_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Execute command"/>
+            android:text="Execute command"
+            local:MvxBind="Click StartCollectionChangesCommand"/>
         <TextView
             android:id="@+id/text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </ListView>
+            android:layout_height="wrap_content"
+            local:MvxBind="Text Text"/>
+          <MvxListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            local:MvxBind="ItemsSource Elements"
+            local:MvxItemTemplate="@layout/element"/>
 </LinearLayout>
