@@ -38,12 +38,13 @@ namespace BindingDemo.MvvmLight.Droid
         private void ApplyBindings()
         {
             //Possible cast fault
-            //_bindings.Add(
-                //this.SetBinding(
-                    //() => _viewModel.Elements,
-                    //() => _adapter.DataSource));
+            _bindings.Add(
+                this.SetBinding(
+                    () => _viewModel.Elements,
+                    () => _adapter.DataSource)
+                .ConvertSourceToTarget(e => e));
 
-            _adapter.DataSource = _viewModel.Elements;
+            //_adapter.DataSource = _viewModel.Elements;
 
             _bindings.Add(
                 this.SetBinding(
@@ -76,9 +77,10 @@ namespace BindingDemo.MvvmLight.Droid
             }
             else
             {
-                returnView = (view as TextView);
-                returnView.Text = element.ToString();
+                returnView = view as TextView;
             }
+
+            returnView.Text = element.ToString();
 
             return returnView;
         }
