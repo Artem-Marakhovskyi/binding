@@ -95,6 +95,9 @@ namespace BindingDemo.MvvmCross.Droid
 			// aapt resource value: 0x7f040002
 			public const int edit_text = 2130968578;
 			
+			// aapt resource value: 0x7f040006
+			public const int list_view = 2130968582;
+			
 			// aapt resource value: 0x7f040005
 			public const int text_view = 2130968581;
 			
