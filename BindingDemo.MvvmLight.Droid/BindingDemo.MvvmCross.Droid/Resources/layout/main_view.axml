@@ -6,33 +6,28 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
         <EditText
-            android:id="@+id/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Text Text">
         </EditText>
         <Button
-            android:id="@+id/clear_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Clear text"
             local:MvxBind="Click ClearCommand"/>
         <Button
-            android:id="@+id/command_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Execute command"
             local:MvxBind="Click StartCollectionChangesCommand"/>
         <TextView
-            android:id="@+id/text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Text Text"/>
           <MvxListView
-            android:id="@+id/list_view"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="wrap_conteent"
             local:MvxBind="ItemsSource Elements"
             local:MvxItemTemplate="@layout/element"/>
 </LinearLayout>

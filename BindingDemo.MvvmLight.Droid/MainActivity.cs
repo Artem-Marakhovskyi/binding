@@ -37,13 +37,15 @@ namespace BindingDemo.MvvmLight.Droid
 
         private void ApplyBindings()
         {
-            //Possible cast fault
+            //Without ConvertSourceToTarget binding failes, because binding doesn't know how to cast types
+            // and doesn't know there is an implicit cast between types
             _bindings.Add(
                 this.SetBinding(
                     () => _viewModel.Elements,
-                    () => _adapter.DataSource));
-                //.ConvertSourceToTarget(e => e));
+                    () => _adapter.DataSource)
+                .ConvertSourceToTarget(e => e));
 
+            // You can substitute code above to this code. Works pretty good
             //_adapter.DataSource = _viewModel.Elements;
 
             _bindings.Add(
