@@ -11,11 +11,8 @@ namespace BindingDemo.MvvmCross.Core.ViewModels
     {
         private const string ElementContentConst = "Element {0}, changes {1}";
 
-        private string _text;
         private MvxCommand _startElementsChangesCommand;
         private MvxCommand _clearCommand;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Text { get; set; }
 

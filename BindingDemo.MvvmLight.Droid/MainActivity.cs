@@ -41,8 +41,8 @@ namespace BindingDemo.MvvmLight.Droid
             _bindings.Add(
                 this.SetBinding(
                     () => _viewModel.Elements,
-                    () => _adapter.DataSource)
-                .ConvertSourceToTarget(e => e));
+                    () => _adapter.DataSource));
+                //.ConvertSourceToTarget(e => e));
 
             //_adapter.DataSource = _viewModel.Elements;
 
