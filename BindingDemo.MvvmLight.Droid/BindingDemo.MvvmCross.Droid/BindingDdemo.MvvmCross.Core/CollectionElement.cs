@@ -12,6 +12,8 @@ namespace BindingDemo.MvvmCross.Core
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string ResText => Resources.AddButton; 
+
         public CollectionElement(int index, int changesCount)
         {
             Index = index;

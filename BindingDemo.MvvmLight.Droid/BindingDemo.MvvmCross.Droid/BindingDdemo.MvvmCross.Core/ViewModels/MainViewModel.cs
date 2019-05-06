@@ -31,6 +31,7 @@ namespace BindingDemo.MvvmCross.Core.ViewModels
             Elements = new ObservableCollection<CollectionElement>();
         }
 
+
         public async void StartCollectionChanges()
         {
             Console.WriteLine("STARTING COLLECTION CHANGES");
